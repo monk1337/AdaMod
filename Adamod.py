@@ -1,3 +1,8 @@
+"""Adamod for TensorFlow."""
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+
 from tensorflow.python.framework import ops
 from tensorflow.python.keras import backend_config
 from tensorflow.python.keras.optimizer_v2 import optimizer_v2
@@ -5,9 +10,13 @@ from tensorflow.python.ops import array_ops
 from tensorflow.python.ops import control_flow_ops
 from tensorflow.python.ops import math_ops
 from tensorflow.python.ops import state_ops
+from tensorflow.python.training import training_ops
+from tensorflow.python.util.tf_export import keras_export
 
 
+@keras_export('keras.optimizers.AdaMod')
 class AdaMod(optimizer_v2.OptimizerV2):
+    
     def __init__(self,
                  learning_rate=0.001,
                  beta_1=0.9,
